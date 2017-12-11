@@ -1,0 +1,40 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# adstreamAshish
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Business Unit Collection [/Businessunit]
+
+### List All Business Units [GET]
++ Request (application/json)
+
+        +Header (application/json)
+            {   
+                "access-control-allow-methods":"OPTIONS,GET,HEAD,POST,PUT,DELETE,TRACE,CONNECT",
+                "Content-Type":"application/json",
+                x-client-key: "<client secrete key>"
+                x-user-token: "<user authenticated token> or NONE"
+            }
+
+        + body
+            {
+                "userGuId": "2ds5r53as5r8v65ae78795661",
+                "languageId": 1
+            }
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "Business unit id",
+                "name": "Business unit name",
+                "timezone": "Timezone description",
+                "connectors": "count of subscribed connectors",
+                "channel": "count of channels",
+                "activeusers": "count of active users",
+                "totalusers": "count of total users",
+                "services": "count of enabled services"
+            }
+        ]
